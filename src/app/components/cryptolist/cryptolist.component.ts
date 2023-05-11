@@ -29,6 +29,7 @@ export class CryptolistComponent implements OnInit{
       console.log(this.totalCryptoData);
       console.log(this.cryptoData);
       console.log(this.page);
+      return;
     });
   }
   onNextPage() {

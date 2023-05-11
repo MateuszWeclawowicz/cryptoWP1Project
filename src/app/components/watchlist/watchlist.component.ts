@@ -18,13 +18,7 @@ export class WatchlistComponent implements OnInit{
   
   constructor(private _cryptowatchlistApiService:CryptowatchlistApiService, private _cryptoMarkets:CryptomarketsApiService){}
   ngOnInit() {
-    
     this.getWatchlist();
-    
-    
-    
-    
-    
   }
   
   getWatchlist() {
@@ -125,6 +119,7 @@ export class WatchlistComponent implements OnInit{
   cryptoChange(){
     this.chart.destroy();
     this.updateChart();
+    //chart needs to refresh after 1 button click
   }
   updateChart(){
     let selectedCoin = (document.getElementById("myCoins") as HTMLSelectElement).value;
@@ -174,5 +169,6 @@ export class WatchlistComponent implements OnInit{
       }
       
     });
+    
   }
 }
