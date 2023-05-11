@@ -9,8 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationControlsComponent } from 'ngx-pagination';
 import { PaginationControlsDirective } from 'ngx-pagination';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 const routes: Routes = [
   { path: '', component: CryptolistComponent },
+  { path: 'watchlist', component: AboutComponent },
   { path: 'about', component: AboutComponent }
 ]
 
@@ -19,7 +21,8 @@ const routes: Routes = [
     AppComponent,
     CryptolistComponent,
     CryptoComponent,
-    AboutComponent
+    AboutComponent,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule,

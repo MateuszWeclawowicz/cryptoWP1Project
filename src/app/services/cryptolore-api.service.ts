@@ -12,8 +12,8 @@ export class CryptoloreApiService {
   constructor(private _http : HttpClient) { }
   private _url = "https://api.coinlore.net/api/tickers/?start=";
   getCryptolore(page: number): Observable<any> {
-    const start = (page - 1) * 100;
-  const url = `${this._url}${start}`;
+    const start = (page - 1) * 50;
+  const url = `${this._url}${start}&limit=50`;
   return this._http.get<ICryptolore>(url)
     .pipe(
       tap(data => console.log('crypto data/error' + JSON.stringify(data))),

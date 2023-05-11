@@ -25,7 +25,7 @@ export class CryptolistComponent implements OnInit{
     {
       this.cryptoData = cryptoData.data
       this.totalCryptoData = cryptoData.info.coins_num;
-      this.maxSize = Math.round(this.totalCryptoData/100)*100;
+      this.maxSize = (Math.round(this.totalCryptoData/100))*2;
       console.log(this.totalCryptoData);
       console.log(this.cryptoData);
       console.log(this.page);
@@ -51,7 +51,7 @@ export class CryptolistComponent implements OnInit{
     if(this.page == 1){
       document.getElementById("previous")!.classList.add("disabled")
     }
-    else if(this.page == 108){
+    else if(this.page == this.maxSize){
       document.getElementById("next")!.classList.add("disabled")
     }
     else{
