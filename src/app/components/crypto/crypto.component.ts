@@ -22,20 +22,23 @@ export class CryptoComponent {
   }
   addToWatchlist(crypto:ICryptolore){
     this.getCheckCrypto();
-    this.checkCrypto.forEach((c : ICryptolore)=>{
-      if(c.id == crypto.id){
-        alert("Crypto already in watchlist!");
-        this.cryptoAdded = true;
-        return;
-      }
-    })
+    
+    if(this.checkCrypto){
+        this.checkCrypto.forEach((c : ICryptolore)=>{
+        if(c.id == crypto.id){
+          alert("Crypto already in watchlist!");
+          this.cryptoAdded = true;
+        }
+      })
+    }
     if(this.cryptoAdded == false){
     crypto = new NewCrypto(crypto.id, crypto.symbol, crypto.name, crypto.rank, crypto.price_usd, 
       crypto.percent_change_24h, crypto.percent_change_1h, crypto.percent_change_7d, crypto.market_cap_usd, crypto.volume24);
-    this._cryptowatchlistApiService.addCrypto(crypto).subscribe(cryptoData =>
+      this._cryptowatchlistApiService.addCrypto(crypto).subscribe(cryptoData =>
       {
         this.cryptoData = cryptoData;
       });
+      this.getCheckCrypto();
     }
   }
 }
