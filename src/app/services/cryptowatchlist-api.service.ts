@@ -14,12 +14,12 @@ export class CryptowatchlistApiService {
   getCrypto(): Observable<any> {
     return this._http.get<ICryptolore>(this._url)
       .pipe(
-        tap(data => console.log('car data/error' + JSON.stringify(data))),
+        tap(data => console.log('crypto data/error' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
-  addCrypto(car: ICryptolore): Observable<any> {
-    return this._http.post<ICryptolore>(this._url, car)
+  addCrypto(crypto: ICryptolore): Observable<any> {
+    return this._http.post<ICryptolore>(this._url, crypto)
       .pipe(
         tap(data => console.log('add crypto message/error' + JSON.stringify(data))),
         catchError(this.handleError)
@@ -36,7 +36,7 @@ export class CryptowatchlistApiService {
   }
 
   private handleError(err: HttpErrorResponse) {
-    console.log('CarApiService: ' + err.message);
+    console.log('CryptowatchlistApiService: ' + err.message);
     return err.message;
   }
 

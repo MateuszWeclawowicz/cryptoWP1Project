@@ -1,13 +1,13 @@
 
 <div class="row">
-  <app-crypto class="col-md-6 col-12" [crypto]="crypto" *ngFor="let crypto of cryptoData"></app-crypto>
+  <app-crypto class="col-xl-6 col-12" [crypto]="crypto" *ngFor="let crypto of cryptoData"></app-crypto>
 </div>
-<div class="col-12 d-flex">
-  <div class="mx-2" >
-    <button class="btn btn-primary" id="previous" type="submit" (click)="onPreviousPage()" >Previous</button>
+<div class="col-12 d-flex justify-content-center">
+  <div class="mx-2 col-1" >
+    <button style="width:100%" class="btn btn-primary" id="previous" type="submit" (click)="onPreviousPage()" >Previous</button>
   </div>
-  <div class="mx-2">
-    <button class="btn btn-primary" id="next" type="submit" (click)="onNextPage()" >Next</button>
+  <div class="mx-2 col-1">
+    <button style="width:100%" class="btn btn-primary" id="next" type="submit" (click)="onNextPage()" >Next</button>
   </div>
 </div>
 <!-- <pagination-controls id="paginationInstance" (pageChange)="onPageChange($event)" (currentPage) ="page" [totalItems] = "totalCryptoData" (maxSize)="maxSize"></pagination-controls> -->

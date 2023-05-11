@@ -10,9 +10,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationControlsComponent } from 'ngx-pagination';
 import { PaginationControlsDirective } from 'ngx-pagination';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+
 const routes: Routes = [
   { path: '', component: CryptolistComponent },
-  { path: 'watchlist', component: AboutComponent },
+  { path: 'watchlist', component: WatchlistComponent },
   { path: 'about', component: AboutComponent }
 ]
 

@@ -1,18 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { ICryptolore, NewCrypto } from 'src/app/interfaces/cryptolore';
 import { CryptowatchlistApiService } from 'src/app/services/cryptowatchlist-api.service';
-
+import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-crypto',
   templateUrl: './crypto.component.html',
   styleUrls: ['./crypto.component.css']
 })
-export class CryptoComponent {
+export class CryptoComponent implements OnInit{
   @Input() crypto!: ICryptolore;
   public cryptoData:ICryptolore | any;
   public checkCrypto:ICryptolore[] | any;
   cryptoAdded: boolean = false;
   constructor(private _cryptowatchlistApiService: CryptowatchlistApiService) { }
+  ngOnInit(): void {
+    this.getCheckCrypto();
+  }
   getCheckCrypto() {
     this._cryptowatchlistApiService.getCrypto().subscribe(checkCrypto =>
       { this.checkCrypto = checkCrypto

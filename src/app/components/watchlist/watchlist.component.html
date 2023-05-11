@@ -1,1 +1,18 @@
-<p>watchlist works!</p>
+<div class="col-12 text-center">
+    <div class="col-12 justify-content-center d-flex">
+        <div class="col-4 justify-content-center d-flex">
+            <select id="myCoins" class="form-select col-12 text-center">
+            <option *ngFor="let coin of cryptoData" value="{{coin.id}}">{{coin.name}}</option>
+        </select>
+        </div>
+        <div class="col-6 d-flex">
+            <button class="btn btn-danger" type="submit" (click)="cryptoChange()">View Coin</button>
+        </div>
+        
+    </div>
+    
+</div>
+<div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div>
+
