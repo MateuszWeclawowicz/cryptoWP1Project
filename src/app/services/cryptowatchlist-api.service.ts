@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { ICryptolore } from '../interfaces/cryptolore';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CryptowatchlistApiService {
 
   constructor(private _http: HttpClient) { }
-  private _url: string = "http://localhost:5050/crypto/";
+  private _url: string = environment.apiURL;
   getCrypto(): Observable<any> {
     return this._http.get<ICryptolore>(this._url)
       .pipe(

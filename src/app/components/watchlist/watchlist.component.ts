@@ -144,18 +144,16 @@ export class WatchlistComponent implements OnInit{
   updateChart() {
     this.cryptoChange();
     let selectedCoin = (document.getElementById("myCoins") as HTMLSelectElement).value;
-    this.cryptoData.forEach((crypto: ICryptolore) => {
-      if(crypto.id == selectedCoin){
-        selectedCoin = crypto.id;
-      }
-      else{
-        selectedCoin = this.cryptoData[0].id;
-      }
+    
+    let watchlistCoinArray: string[] = [];
+    this.cryptoData.forEach((coin: ICryptolore) => {
+      watchlistCoinArray.push(coin.id);
     });
+
+    selectedCoin = watchlistCoinArray.includes(selectedCoin) ? selectedCoin : this.cryptoData[0].id;
     console.log("selected coin is " + selectedCoin)
     console.log(selectedCoin);
-    //this.updateMarkets(selectedCoin);//this.selectedCoin
-  // this.getMarkets(selectedCoin);
+    
     // Wait for the API call to complete
     this._cryptoMarketsApiService.getCryptoMarkets(selectedCoin).subscribe(markets => {
       this.cryptoMarkets = markets;
