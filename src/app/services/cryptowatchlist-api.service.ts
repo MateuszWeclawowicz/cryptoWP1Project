@@ -27,13 +27,14 @@ export class CryptowatchlistApiService {
   }
 
   deleteCrypto(cryptoID: string): Observable<any> {
-    let deleteURL = this._url + ":" + cryptoID;
+    let deleteURL = `${this._url}:${cryptoID}`;
     return this._http.delete(deleteURL)
       .pipe(
         tap(data => console.log('del crypto message/error' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
+  
 
   private handleError(err: HttpErrorResponse) {
     console.log('CryptowatchlistApiService: ' + err.message);

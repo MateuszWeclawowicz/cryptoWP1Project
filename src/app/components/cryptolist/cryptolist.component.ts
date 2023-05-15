@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { CryptoloreApiService } from '../../services/cryptolore-api.service';
 import { ICryptolore, NewCrypto } from '../../interfaces/cryptolore';
 import { CryptowatchlistApiService } from 'src/app/services/cryptowatchlist-api.service';
-import { PaginationInstance } from 'ngx-pagination';
+
 @Component({
   selector: 'app-cryptolist',
   templateUrl: './cryptolist.component.html',
@@ -60,4 +60,5 @@ export class CryptolistComponent implements OnInit{
       document.getElementById("next")!.classList.remove("disabled")
     }
   }
+  
 }

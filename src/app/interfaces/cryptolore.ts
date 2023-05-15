@@ -1,5 +1,5 @@
 export interface ICryptolore{
-    
+    _id:string,
     id:string,
     symbol:string,
     name:string,
@@ -14,6 +14,7 @@ export interface ICryptolore{
     
 }
 export class NewCrypto implements ICryptolore{
+    _id!:string;
     id!:string;
     symbol:string;
     name:string;

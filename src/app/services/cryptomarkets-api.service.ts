@@ -14,7 +14,7 @@ export class CryptomarketsApiService {
   getCryptoMarkets(id: string): Observable<any> {
     return this._http.get<ICryptoloreMarkets>(this._url+id)
       .pipe(
-        tap(data => console.log('car data/error' + JSON.stringify(data))),
+        tap(data => console.log('crypto data/error' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

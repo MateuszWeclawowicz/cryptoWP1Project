@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { ICryptolore, NewCrypto } from 'src/app/interfaces/cryptolore';
 import { CryptowatchlistApiService } from 'src/app/services/cryptowatchlist-api.service';
 import { OnInit } from '@angular/core';
@@ -13,6 +13,7 @@ export class CryptoComponent implements OnInit{
   public checkCrypto:ICryptolore[] | any;
   cryptoAdded: boolean = false;
   constructor(private _cryptowatchlistApiService: CryptowatchlistApiService) { }
+  
   ngOnInit(): void {
     this.getCheckCrypto();
   }
@@ -20,20 +21,23 @@ export class CryptoComponent implements OnInit{
     this._cryptowatchlistApiService.getCrypto().subscribe(checkCrypto =>
       { this.checkCrypto = checkCrypto
         console.log(this.checkCrypto);
+        return;
     });
     
   }
   addToWatchlist(crypto:ICryptolore){
     this.getCheckCrypto();
     
-    if(this.checkCrypto){
+    
         this.checkCrypto.forEach((c : ICryptolore)=>{
         if(c.id == crypto.id){
           alert("Crypto already in watchlist!");
           this.cryptoAdded = true;
+          return;
         }
       })
-    }
+      
+    
     if(this.cryptoAdded == false){
     crypto = new NewCrypto(crypto.id, crypto.symbol, crypto.name, crypto.rank, crypto.price_usd, 
       crypto.percent_change_24h, crypto.percent_change_1h, crypto.percent_change_7d, crypto.market_cap_usd, crypto.volume24);
